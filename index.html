@@ -58,10 +58,41 @@
               </div>
               <div class="mt-16 flow-root sm:mt-24">
                 <div class="-m-2 w-[1240px] h-[1754px] rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
-                  <div class="flex justify-center my-3">
+                  <div class="flex justify-center my-3 gap-x-5">
+                    <!-- Color -->
                     <div class="flex items-center">
                       <label for="brand-color" class="font-bold">Color: </label>
                       <input id="brand-color" type="color" v-model="brandColor" class="rounded">
+                    </div>
+                    
+                    <!-- Note -->
+                    <label class="inline-flex items-center cursor-pointer">
+                      <label for="brand-color" class="font-bold">Note: </label>
+                      <input type="checkbox" class="sr-only peer" v-model="note">
+                      <div class="ms-3 relative w-11 h-6 bg-gray-200 peer-focus:outline-none dark:peer-focus:ring-indigo-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-indigo-600"></div>
+                    </label>
+
+                    <!-- Currency -->
+                    <div class="flex items-center">
+                      <label for="brand-color" class="font-bold">Currency: </label>
+                      <select v-model="currency" id="countries" class="ms-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5">
+                        <option value="$" selected>Dollar ($)</option>
+                        <option value="৳">Taka (৳)</option>
+                        <option value="€">Euro (€)</option>
+                        <option value="£">Pound (£)</option>
+                        <option value="¥">Yen (¥)</option>
+                        <option value="₹">Rupee (₹)</option>
+                        <option value="₽">Ruble (₽)</option>
+                        <option value="₿">Bitcoin (₿)</option>
+                        <option value="฿">Baht (฿)</option>
+                        <option value="₡">Colon (₡)</option>
+                        <option value="₫">Dong (₫)</option>
+                        <option value="₭">Kip (₭)</option>
+                        <option value="₦">Naira (₦)</option>
+                        <option value="₱">Peso (₱)</option>
+                        <option value="₴">Hryvnia (₴)</option>
+                        <option value="₮">Tugrik (₮)</option>
+                      </select>
                     </div>
                   </div>
                   <div class="bg-white flex flex-col p-[70px] w-[100%] h-[96%]" id="invoice">
@@ -88,13 +119,15 @@
                             <p class="text-sm text-end" contenteditable="true">info@vueInvoice.com</p>
                         </div>
                       </div>
-                      <div class="text-sm flex justify-between my-5 p-5 border" contenteditable="true">
-                        Dear Arman Rahman,<br><br>
-
+                      <div v-if="note">
+                        <div class="text-sm flex justify-between my-5 p-5 border" contenteditable="true">
+                          Dear Arman Rahman,<br><br>
+  
                           I've provided a breakdown of the costs for the recent work completed below. Kindly make the payment at your earliest convenience. Feel free to reach out if you have any questions.
                           <br><br>
                           Thank you,<br>
                           Your Name
+                        </div>
                       </div>
                       <div class="my-5">
                           <div class="mt-8 flow-root text-sm">
@@ -106,8 +139,8 @@
                                       <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-3">#</th>
                                       <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white" contenteditable="true">Item Description</th>
                                       <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white" contenteditable="true">Quantity</th>
-                                      <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white" contenteditable="true">Unit Price ($)</th>
-                                      <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white" contenteditable="true">Total ($)</th>
+                                      <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white" contenteditable="true">Unit Price ({{ currency }})</th>
+                                      <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white" contenteditable="true">Total ({{ currency }})</th>
                                     </tr>
                                   </thead>
                                   <tbody class="bg-white" id="tableBox">

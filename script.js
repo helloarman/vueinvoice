@@ -3,11 +3,19 @@ var app = Vue.createApp({
         return {
             brandColor: "#6366F1",
             rowCount: 1,
+            note: true,
+            currency: '$',
             rows: [{ amount: '', unit: '', total: 0 }],
             subTotal: 0,
             taxPercentage: '',
             tax: 0,
             total: 0,
+            message: `Dear Arman Rahman,
+
+            I've provided a breakdown of the costs for the recent work completed below. Kindly make the payment at your earliest convenience. Feel free to reach out if you have any questions.
+            
+            Thank you,
+            Your Name`
         }
     },
 
