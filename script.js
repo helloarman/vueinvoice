@@ -3,7 +3,7 @@ var app = Vue.createApp({
         return {
             brandColor: "#6366F1",
             rowCount: 1,
-            note: true,
+            letter: true,
             currency: '$',
             rows: [{ amount: '', unit: '', total: 0 }],
             subTotal: 0,
