@@ -113,7 +113,7 @@
                                   <tbody class="bg-white" id="tableBox">
                                     <tr v-for="(row, index) in rowCount" :key="index" class="border-x even:bg-gray-50 divide-x divide-gray-200" >
                                       <td class="whitespace-nowrap py-4 pl-2 pr-3 text-sm font-medium text-gray-900 sm:pl-3">{{ index + 1 }}</td>
-                                      <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500 text-wrap w-96" contenteditable="true">Front-end Development</td>
+                                      <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500 text-wrap w-96" contenteditable="true"></td>
                                       <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500"><input class="p-2 bg-transparent" placeholder="0" type="number" v-model.number="rows[index].amount" @input="calculateSubTotal(index)"></td>
                                       <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500"><input class="p-2 bg-transparent" placeholder="0" type="number" v-model.number="rows[index].unit" @input="calculateSubTotal(index)"></td>
                                       <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">{{ rows[index].total }}</td>
