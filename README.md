@@ -22,6 +22,12 @@ To get started with VueInvoice, follow these steps:
 1. Edit invoice details such as client name, address, and itemized list.
 2. Click on the "Download" button to save the invoice as a PDF file.
 
+## Technologies Used
+
+- Vue.js
+- HTML/CSS
+- JavaScript
+
 ## Contributing
 
 Contributions are welcome! Feel free to open issues or submit pull requests to help improve VueInvoice.
